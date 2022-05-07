@@ -1,0 +1,49 @@
+﻿@page
+@model rankfire.Pages.Retailer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Retailer[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Retailer[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Retailer[0].LicenseNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Retailer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicenseNumber)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.GUID_Retailer">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.GUID_Retailer">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.GUID_Retailer">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

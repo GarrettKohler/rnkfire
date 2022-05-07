@@ -1,0 +1,78 @@
+﻿@page
+@model rankfire.Pages.ProductReview.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<h1>Index</h1>
+
+<p>
+    <button class="mdc-button" asp-page="./Create">  <span class="mdc-button__ripple"></span> Learn More</button>
+    <div class="mdc-touch-target-wrapper">
+        <button class="mdc-button mdc-button--touch">
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__touch"></span>
+            <span class="mdc-button__label">My Accessible Button</span>
+        </button>
+    </div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductReview[0].ReviewTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductReview[0].ReviewBody)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductReview[0].QualityScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductReview[0].ValueScore)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProductReview)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReviewTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReviewBody)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QualityScore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValueScore)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.GUID_ProductReview">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.GUID_ProductReview">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.GUID_ProductReview">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button href="C:\Users\garre\source\repos\rankfire\Pages\ProductReview\Create.cshtml" class="mdc-button foo-button">
+    <div class="mdc-button__ripple"></div>
+    <span class="mdc-button__label">Button</span>
+</button>
+
+
+@section Scripts
+{
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <!-- Required MDC Web JavaScript library -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+}

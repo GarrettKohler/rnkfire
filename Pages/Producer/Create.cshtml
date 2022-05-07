@@ -1,0 +1,45 @@
+﻿@page
+@model rankfire.Pages.Producer.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Producer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Producer.Name" class="control-label"></label>
+                <input asp-for="Producer.Name" class="form-control" />
+                <span asp-validation-for="Producer.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Producer.Address" class="control-label"></label>
+                <input asp-for="Producer.Address" class="form-control" />
+                <span asp-validation-for="Producer.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Producer.LicenseNumber" class="control-label"></label>
+                <input asp-for="Producer.LicenseNumber" class="form-control" />
+                <span asp-validation-for="Producer.LicenseNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

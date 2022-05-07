@@ -1,0 +1,44 @@
+﻿@page
+@model rankfire.Pages.ProductReview.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ProductReview</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductReview.ReviewTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductReview.ReviewTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductReview.ReviewBody)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductReview.ReviewBody)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductReview.QualityScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductReview.QualityScore)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductReview.ValueScore)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductReview.ValueScore)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ProductReview.GUID_ProductReview">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
